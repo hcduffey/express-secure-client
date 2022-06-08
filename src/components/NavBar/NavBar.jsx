@@ -7,7 +7,7 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
 const NavBar = (props) => {
     const [isActive, setisActive] = useState(false);
-    const {gitHubAccount, updateGitHubAccount, gitHubAccountModalActive, updateGitHubAccountModalActive} = props
+    const {gitHubAccount, updateGitHubAccountModalActive} = props
      
     return(
         <nav className="navbar is-info" role="navigation" aria-label="main navigation">
@@ -33,8 +33,8 @@ const NavBar = (props) => {
         </div>
         <div id="navbarBasicExample" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
           <div className="navbar-end">
-            {gitHubAccount && <span class="navbar-item">{gitHubAccount.name}</span>}
-            <Link onClick={() => { setisActive(!isActive); }} to="/" className="navbar-item"><FontAwesomeIcon icon={faUserCircle} /></Link>          
+            {gitHubAccount ? <span className="navbar-item">{gitHubAccount.owner}</span> : <span className="navbar-item"><i>Select GitHub Account</i></span>}
+            <Link onClick={() => { updateGitHubAccountModalActive(true); setisActive(!isActive); }} to="/" className="navbar-item"><FontAwesomeIcon icon={faUserCircle} /></Link>          
           </div>
         </div>
      </nav>
