@@ -1,11 +1,14 @@
 import './NavBar.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+
 
 const NavBar = (props) => {
     const [isActive, setisActive] = useState(false);
-    const {gitHubAccount, updateGitHubAccount} = props
-
+    const {gitHubAccount, updateGitHubAccount, gitHubAccountModalActive, updateGitHubAccountModalActive} = props
+     
     return(
         <nav className="navbar is-info" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
@@ -30,8 +33,8 @@ const NavBar = (props) => {
         </div>
         <div id="navbarBasicExample" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
           <div className="navbar-end">
-            {gitHubAccount && <Link to="/" onClick={() => { setisActive(!isActive); }} className="navbar-item">GitHubAccout</Link>}
-            <Link onClick={() => { setisActive(!isActive); }} to="/" className="navbar-item">Change</Link>          
+            {gitHubAccount && <span class="navbar-item">{gitHubAccount.name}</span>}
+            <Link onClick={() => { setisActive(!isActive); }} to="/" className="navbar-item"><FontAwesomeIcon icon={faUserCircle} /></Link>          
           </div>
         </div>
      </nav>
