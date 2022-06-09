@@ -6,7 +6,7 @@ import Main from './pages/Main/Main';
 
 function App() {
   // manages the state of the currently used GitHub account
-  const [gitHubAccount, updateGitHubAccount] = useState({owner: "hcduffey", id: 1});
+  const [gitHubAccount, updateGitHubAccount] = useState(null);
   // determines whether the modal to set the current GitHub account is visible
   const [gitHubAccountModalActive, updateGitHubAccountModalActive] = useState(false)
 

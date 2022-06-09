@@ -2,7 +2,8 @@ import { useEffect } from "react";
 
 const GitHubAccountListDropDown = (props) => {
 
-    const {gitHubAccountList, updateGitHubAccountList} = props
+    const {gitHubAccountList, updateGitHubAccountList} = props;
+    const {updateSelectedGitHubAccount} = props;
 
     /**
      * Fetches all of the GitHubAccounts from the database to update/sync local state.
@@ -22,12 +23,10 @@ const GitHubAccountListDropDown = (props) => {
 
     }
 
+    // if gitHubAccountList is empty grab all of the currently stored GitHubAccounts
     useEffect(() => {
         if( gitHubAccountList === null ) {
             getGitHubAccountList();
-        }
-        else {
-            console.log(gitHubAccountList)
         }
     });
 
@@ -35,15 +34,24 @@ const GitHubAccountListDropDown = (props) => {
     const getSelectOptions = () => {
         return(
             gitHubAccountList.map((account) => {
-                return <option key={account.id} value={account.id}>{account.owner}</option>
+                return <option key={account.id} id={account.id} value={account.owner}>{account.owner}</option>
             })   
         );
+    }
+
+    const selectChanged = (e) => {
+        const id = e.target.childNodes[e.target.selectedIndex].id
+
+        if(id !== "0") {
+            const currentGitHubAccount = gitHubAccountList.find(element => element.id === parseInt(id));
+            updateSelectedGitHubAccount(currentGitHubAccount);
+        }   
     }
 
     return (
         gitHubAccountList ?
         <div className="select">
-            <select defaultValue="0">
+            <select onChange={selectChanged} itemID="gitHubAccountSelect" defaultValue="0">
                 <option disabled value="0"> -- existing account -- </option>
                 { getSelectOptions() }
             </select>

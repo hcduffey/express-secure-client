@@ -2,6 +2,6 @@
     color: red;
 }
 
-Button {
-    margin-left: 0.2em;
+.header {
+    text-align: right;
 }
