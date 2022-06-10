@@ -4,8 +4,8 @@ import { faCodeBranch } from '@fortawesome/free-solid-svg-icons';
 
 const BranchPanelBlock = (props) => {
     const { branchName, branchId, branchList } = props
+    const { updateCurrentBranch } = props
     const { updateScanList } = props
-
 
     const getScans = async (urls) => {
         Promise.all(urls.map(u=>fetch(u))).then(responses =>
@@ -18,6 +18,7 @@ const BranchPanelBlock = (props) => {
     const handleClick = () => {
         //grab the scans and update table
         const selectedBranch = branchList.find((branch) => branch.id === branchId);
+        updateCurrentBranch(selectedBranch);
         getScans(selectedBranch.scans)
     }
 

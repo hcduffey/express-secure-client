@@ -11,7 +11,8 @@ const RepositoryPanel = (props) => {
     const { updateScanList } = props;
 
     const [currentRepository, updateCurrentRepository] = useState(null);
-    const {branchList, updateBranchList } = props;
+    const { branchList, updateBranchList } = props;
+    const { updateCurrentBranch } = props;
 
     const getRepositoryList = async (urls) => {
         
@@ -53,7 +54,7 @@ const RepositoryPanel = (props) => {
                     </span>
                 </div>
             </div>
-            <BranchPanelBlockGroup updateScanList={ updateScanList } branchList={ branchList } />
+            <BranchPanelBlockGroup updateScanList={ updateScanList } branchList={ branchList } updateCurrentBranch={ updateCurrentBranch } />
             <BranchSyncButton currentRepository={ currentRepository } updateBranchList={ updateBranchList } />
         </nav>
     );
