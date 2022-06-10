@@ -12,7 +12,6 @@ const BranchPanelBlock = (props) => {
             Promise.all(responses.map(res => res.json()))
         ).then(data => {
             updateScanList([...data]);
-            console.log([...data]);
         }).catch(err => console.log(err));
     }
 

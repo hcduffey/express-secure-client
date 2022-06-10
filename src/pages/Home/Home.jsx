@@ -1,6 +1,8 @@
 import RepositoryPanel from "../../components/Respository/RepositoryPanel/RepositoryPanel"
+import ScanTable from "../../components/Scan/ScanTable/ScanTable";
 import { useState } from "react"
 import { Button } from "react-bulma-components";
+
 
 const Home = (props) => {
 
@@ -22,7 +24,7 @@ const Home = (props) => {
                             <p className="card-header-title is-centered">Scans</p>
                         </div>
                         <div className="card-content">
-                            <div className="content">ScanList</div>
+                            <div className="content"><ScanTable scanList={ scanList }/></div>
                         </div>
                         <div className="card-footer">
                             <p className="card-footer-item"><Button className="is-small">New Scan</Button></p>
