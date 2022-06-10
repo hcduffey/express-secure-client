@@ -11,7 +11,7 @@ const ScanTable = (props) => {
 
     return(
         scanList.length > 0 ?
-        <table class="table">
+        <table className="table">
             <thead>
                 <tr>
                     <th>Name</th>
@@ -25,7 +25,7 @@ const ScanTable = (props) => {
             </tbody>
         </table>
         :
-        <table class="table">
+        <table className="table">
             <thead>
                 <tr>
                     <th>Name</th>

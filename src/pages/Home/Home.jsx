@@ -11,6 +11,7 @@ const Home = (props) => {
     const {branchList, updateBranchList } = props;
     const [scanList, updateScanList] = useState([]);
 
+    console.log(scanList)
     // https://codepen.io/ais-one/pen/KKMMPaK for layout 
     return (
         <div className="columns">

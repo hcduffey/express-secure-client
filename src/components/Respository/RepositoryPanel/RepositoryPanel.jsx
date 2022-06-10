@@ -11,7 +11,6 @@ const RepositoryPanel = (props) => {
     const { updateScanList } = props;
 
     const [currentRepository, updateCurrentRepository] = useState(null);
-    //const [branchList, updateBranchList ] = useState([]);
     const {branchList, updateBranchList } = props;
 
     const getRepositoryList = async (urls) => {
