@@ -1,6 +1,7 @@
 const RepositoryListDropDown = (props) => {
     const { repositoryList, updateCurrentRepository, updateBranchList } = props;
     const { updateScanList } = props;
+    const { updateCurrentBranch } = props;
 
     const getCurrentRepository = async (repo) => {
         try {
@@ -14,6 +15,7 @@ const RepositoryListDropDown = (props) => {
                 updateCurrentRepository(result)
                 updateBranchList([])
                 updateScanList([])
+                updateCurrentBranch(null);
             }
             else {
                 console.log("Error: " + response.status)
@@ -37,6 +39,7 @@ const RepositoryListDropDown = (props) => {
             updateCurrentRepository(null)
             updateBranchList([])
             updateScanList([])
+            updateCurrentBranch(null)
         }
     }
 

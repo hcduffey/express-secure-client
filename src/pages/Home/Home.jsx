@@ -23,7 +23,7 @@ const Home = (props) => {
                 <div className="section">
                     <div className="card">
                         <div className="card-header">
-                            <p className="card-header-title is-centered">Scans</p>
+                            <p className="card-header-title is-centered">{branchList.length > 0 && currentBranch && currentBranch.name.split('/')[5] + "/" + currentBranch.name.split('/')[7] + " "}Scans</p>
                         </div>
                         <div className="card-content">
                             <div className="content"><ScanTable scanList={ scanList }/></div>

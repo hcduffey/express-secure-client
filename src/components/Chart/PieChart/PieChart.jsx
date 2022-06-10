@@ -7,7 +7,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 function PieChart(props) {
   const {scanList} = props;
-  
+
   const getData = () => {
     const labels = []
     const data = []
@@ -79,7 +79,7 @@ function PieChart(props) {
           Vulnerabilities By Category
         </p>
       </header>
-      <div className="card-image">
+      <div className="card-image is-centered">
         <figure className="chart-figure">
           <Pie data={data} />
         </figure>

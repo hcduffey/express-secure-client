@@ -34,7 +34,7 @@ const NavBar = (props) => {
         <div id="navbarBasicExample" className={`navbar-menu ${isActive ? "is-active" : ""}`}>
           <div className="navbar-end">
             {gitHubAccount ? <span className="navbar-item">{gitHubAccount.owner}</span> : <span className="navbar-item"><i>Select GitHub Account</i></span>}
-            <Link onClick={() => { updateGitHubAccountModalActive(true); setisActive(!isActive); }} to="/" className="navbar-item"><FontAwesomeIcon icon={faUserCircle} /></Link>          
+            <Link onClick={() => { updateGitHubAccountModalActive(true); setisActive(!isActive); }} to="/" className="navbar-item"><FontAwesomeIcon icon={faUserCircle} /></Link>
           </div>
         </div>
      </nav>
