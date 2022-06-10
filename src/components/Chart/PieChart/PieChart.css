@@ -1,0 +1,6 @@
+.chart-figure {
+    width: 33em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

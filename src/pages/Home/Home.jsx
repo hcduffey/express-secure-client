@@ -2,7 +2,7 @@ import RepositoryPanel from "../../components/Respository/RepositoryPanel/Reposi
 import ScanTable from "../../components/Scan/ScanTable/ScanTable";
 import { useState } from "react"
 import ScanButton from "../../components/Scan/ScanButton/ScanButton";
-
+import PieChart from "../../components/Chart/PieChart/PieChart";
 
 const Home = (props) => {
     const { updateNotificationMessage } = props
@@ -34,7 +34,7 @@ const Home = (props) => {
                     </div>
                 </div>
                 <div className="section">
-                    ChartGoHere
+                    <PieChart scanList={scanList} />
                 </div>
             </div>
         </div>
