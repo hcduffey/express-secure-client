@@ -20,9 +20,10 @@ const customStyles = {
 };
 
 const GitHubAccountModal = (props) => {
-    const {gitHubAccount, updateGitHubAccount} = props;
-    const {gitHubAccountModalActive, updateGitHubAccountModalActive} = props;
-    const {updateBranchList} = props;
+    const { gitHubAccount, updateGitHubAccount } = props;
+    const { gitHubAccountModalActive, updateGitHubAccountModalActive } = props;
+    const { updateBranchList } = props;
+    const { updateScanList } = props;
     const [gitHubAccountList, updateGitHubAccountList] = useState(null);
     const [selectedGitHubAccount, updateSelectedGitHubAccount] = useState(null);
     const [importGitHubAccount, updateImportGitHubAccount] = useState(null);
@@ -43,6 +44,7 @@ const GitHubAccountModal = (props) => {
         if(selectedGitHubAccount !== null) {
             updateGitHubAccount(selectedGitHubAccount)
             updateBranchList([]);
+            updateScanList([]);
             closeModal()
         }
     }
@@ -60,6 +62,7 @@ const GitHubAccountModal = (props) => {
                 updateGitHubAccount(result);
                 updateGitHubAccountList(null);
                 updateBranchList([]);
+                updateScanList([]);
                 
                 closeModal();
             }

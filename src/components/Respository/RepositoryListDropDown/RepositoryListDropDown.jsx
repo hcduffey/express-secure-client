@@ -1,6 +1,6 @@
 const RepositoryListDropDown = (props) => {
     const { repositoryList, updateCurrentRepository, updateBranchList } = props;
-
+    const { updateScanList } = props;
 
     const getCurrentRepository = async (repo) => {
         try {
@@ -13,6 +13,7 @@ const RepositoryListDropDown = (props) => {
                 let result = await response.json();
                 updateCurrentRepository(result)
                 updateBranchList([])
+                updateScanList([])
             }
             else {
                 console.log("Error: " + response.status)
@@ -32,7 +33,11 @@ const RepositoryListDropDown = (props) => {
         if(value !== "0") {
             const selectedRepository = repositoryList.find(element => element.id === parseInt(value));
             getCurrentRepository(selectedRepository)
-        } 
+        } else {
+            updateCurrentRepository(null)
+            updateBranchList([])
+            updateScanList([])
+        }
     }
 
     const repositoryListOptions = () => {
@@ -47,7 +52,7 @@ const RepositoryListDropDown = (props) => {
         repositoryList.length !== 0 ?
         <div className="select is-small">
             <select onChange={selectChanged} itemID="repositorySelect" defaultValue="0">
-                <option disabled value="0">-- select repository --</option>
+                <option value="0">-- select repository --</option>
                 { repositoryListOptions() }
             </select>
         </div>

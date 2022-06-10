@@ -10,7 +10,7 @@ const ScanTable = (props) => {
     }
 
     return(
-        scanList.length > 0 ?
+        scanList && scanList.length > 0 ?
         <table className="table">
             <thead>
                 <tr>

@@ -48,7 +48,7 @@ const RepositoryPanel = (props) => {
             </p>
             <div className="panel-block">
                 <div className="control has-icons-left">
-                    <RepositoryListDropDown repositoryList={ repositoryList } updateCurrentRepository={ updateCurrentRepository } updateBranchList={ updateBranchList } />
+                    <RepositoryListDropDown repositoryList={ repositoryList } updateCurrentRepository={ updateCurrentRepository } updateBranchList={ updateBranchList } updateScanList={ updateScanList } />
                     <span className="icon is-left">
                         <FontAwesomeIcon icon={faBook} />
                     </span>

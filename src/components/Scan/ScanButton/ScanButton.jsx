@@ -4,6 +4,7 @@ const ScanButton = (props) => {
     const { updateScanList, scanList } = props
     const { currentBranch } = props
     const { showProgressBar, updateShowProgressBar } = props
+    const { updateNotificationMessage } = props
 
     const scanName = () => {
         let branchArray = currentBranch.name.split('/');
@@ -19,14 +20,14 @@ const ScanButton = (props) => {
                 updateScanList([...scanList, result]);
             }
             else {
-                console.log("Error: " + response.status)
+                updateNotificationMessage("Error: " + response.status)
                 updateShowProgressBar(false)
                 return null;
             }
             
         }
         catch(err) {
-            console.log(err);
+            updateNotificationMessage(err);
             updateShowProgressBar(false)
             return null;
         }
@@ -44,14 +45,14 @@ const ScanButton = (props) => {
                 getUpdatedScan(result.id);    
             }
             else {
-                console.log("Error: " + response.status)
+                updateNotificationMessage("Error: " + response.status)
                 updateShowProgressBar(false)
                 return null;
             }
             
         }
         catch(err) {
-            console.log(err);
+            updateNotificationMessage(err);
             updateShowProgressBar(false)
             return null;
         }

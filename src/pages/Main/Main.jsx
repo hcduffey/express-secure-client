@@ -2,18 +2,22 @@ import './Main.css'
 import { Routes, Route } from "react-router"
 import Home from '../Home/Home'
 import GitHubAccountModal from '../../components/GitHubAccount/GitHubAccountModal/GitHubAccountModal'
+import Notification from '../../components/Notification/Notification'
 import { useState } from 'react'
 
 const Main = (props) => {
     const {gitHubAccount, updateGitHubAccount} = props
     const {gitHubAccountModalActive, updateGitHubAccountModalActive} = props
     const [branchList, updateBranchList ] = useState([]);
+    const [scanList, updateScanList] = useState([]);
+    const [notificationMessage, updateNotificationMessage] = useState(null);
 
     return(
         <main>
-            <GitHubAccountModal updateBranchList={ updateBranchList } gitHubAccount={ gitHubAccount } updateGitHubAccount={ updateGitHubAccount } gitHubAccountModalActive={ gitHubAccountModalActive } updateGitHubAccountModalActive={ updateGitHubAccountModalActive }/>
+            <GitHubAccountModal updateScanList={ updateScanList } updateBranchList={ updateBranchList } gitHubAccount={ gitHubAccount } updateGitHubAccount={ updateGitHubAccount } gitHubAccountModalActive={ gitHubAccountModalActive } updateGitHubAccountModalActive={ updateGitHubAccountModalActive }/>
+            <Notification notificationMessage={ notificationMessage } updateNotificationMessage={ updateNotificationMessage } />
             <Routes>
-                <Route index element={<Home gitHubAccount={ gitHubAccount } branchList={ branchList } updateBranchList={ updateBranchList } />} />
+                <Route index element={<Home updateNotificationMessage={updateNotificationMessage} gitHubAccount={ gitHubAccount } branchList={ branchList } updateBranchList={ updateBranchList } scanList={ scanList } updateScanList={ updateScanList } />} />
             </Routes>
         </main>
     )

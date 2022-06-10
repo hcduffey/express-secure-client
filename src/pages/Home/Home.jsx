@@ -5,12 +5,12 @@ import ScanButton from "../../components/Scan/ScanButton/ScanButton";
 
 
 const Home = (props) => {
-
+    const { updateNotificationMessage } = props
     const { gitHubAccount } = props
     const [repositoryList, updateRepositoryList] = useState([]);
     const { branchList, updateBranchList } = props;
     const [currentBranch, updateCurrentBranch] = useState(null);
-    const [scanList, updateScanList] = useState([]);
+    const {scanList, updateScanList} = props;
     const [showProgressBar, updateShowProgressBar] = useState(false);
 
     // https://codepen.io/ais-one/pen/KKMMPaK for layout 
@@ -29,7 +29,7 @@ const Home = (props) => {
                             <div className="content"><ScanTable scanList={ scanList }/></div>
                         </div>
                         <div className="card-footer">
-                            <p className="card-footer-item"><ScanButton showProgressBar={ showProgressBar } updateShowProgressBar={ updateShowProgressBar } updateScanList={ updateScanList } currentBranch={ currentBranch } scanList={ scanList } /></p>
+                            <p className="card-footer-item"><ScanButton updateNotificationMessage={ updateNotificationMessage } showProgressBar={ showProgressBar } updateShowProgressBar={ updateShowProgressBar } updateScanList={ updateScanList } currentBranch={ currentBranch } scanList={ scanList } /></p>
                         </div>
                     </div>
                 </div>

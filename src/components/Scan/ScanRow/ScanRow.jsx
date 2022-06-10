@@ -11,7 +11,9 @@ const ScanRow = (props) => {
 
     if(scan.vulnerabilities.length > 0) {
         scan.vulnerabilities.forEach((v) => {
-            csvData.push([v.type, v.category, v.severity, v.description, v.file, v.match_line])
+            const filePathArray = v.file.split('/');
+            const filePath = `${filePathArray[4]}/${filePathArray[5]}`
+            csvData.push([v.type, v.category, v.severity, v.description, filePath, v.match_line])
         });
     }
 
@@ -20,7 +22,7 @@ const ScanRow = (props) => {
             <td>{scan.name}</td>
             <td>{scan.vulnerabilities.length}</td>
             <td>{prettyDate}</td>
-            <td><CSVLink filename={scan.name + '-' + scan.date} data={csvData}><FontAwesomeIcon icon={faDownload} /></CSVLink></td>
+            <td><CSVLink filename={scan.name + '-' + scan.date + '.csv'} data={csvData}><FontAwesomeIcon icon={faDownload} /></CSVLink></td>
         </tr>
     )
 }
