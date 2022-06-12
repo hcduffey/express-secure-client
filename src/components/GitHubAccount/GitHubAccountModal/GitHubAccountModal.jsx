@@ -24,9 +24,10 @@ const GitHubAccountModal = (props) => {
     const { gitHubAccountModalActive, updateGitHubAccountModalActive } = props;
     const { updateBranchList } = props;
     const { updateScanList } = props;
-    const [gitHubAccountList, updateGitHubAccountList] = useState(null);
+    const {gitHubAccountList, updateGitHubAccountList} = props;
     const [selectedGitHubAccount, updateSelectedGitHubAccount] = useState(null);
     const [importGitHubAccount, updateImportGitHubAccount] = useState(null);
+    const { updateNotificationMessage } = props
 
     // MODAL FUNCTIONS
     Modal.setAppElement('#root');
@@ -67,13 +68,13 @@ const GitHubAccountModal = (props) => {
                 closeModal();
             }
             else {
-                console.log("Error: " + response.status)
+                updateNotificationMessage("Error: " + response.status)
                 return null;
             }
             
         }
         catch(err) {
-            console.log(err);
+            updateNotificationMessage(err.message);
             return null;
         }
 
@@ -99,7 +100,7 @@ const GitHubAccountModal = (props) => {
                 <div>
                     <div className="field has-addons">
                         <div className="control">
-                            <GitHubAccountListDropDown gitHubAccountList={gitHubAccountList} updateGitHubAccountList={updateGitHubAccountList} updateSelectedGitHubAccount={updateSelectedGitHubAccount} />
+                            <GitHubAccountListDropDown updateNotificationMessage={ updateNotificationMessage } gitHubAccountList={gitHubAccountList} updateGitHubAccountList={updateGitHubAccountList} updateSelectedGitHubAccount={updateSelectedGitHubAccount} />
                         </div>
                         <div className="control">
                             <Button onClick={selectOnClick} color="info is-light">Select</Button>

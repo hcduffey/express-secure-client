@@ -79,8 +79,8 @@ function PieChart(props) {
           Vulnerabilities By Category
         </p>
       </header>
-      <div className="card-image is-centered">
-        <figure className="chart-figure">
+      <div className="card-image has-text-centered">
+        <figure className="chart-figure image inline-block">
           <Pie data={data} />
         </figure>
       </div>

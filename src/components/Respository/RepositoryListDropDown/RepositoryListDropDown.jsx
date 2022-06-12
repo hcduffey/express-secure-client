@@ -2,6 +2,7 @@ const RepositoryListDropDown = (props) => {
     const { repositoryList, updateCurrentRepository, updateBranchList } = props;
     const { updateScanList } = props;
     const { updateCurrentBranch } = props;
+    const { updateNotificationMessage } = props;
 
     const getCurrentRepository = async (repo) => {
         try {
@@ -18,13 +19,13 @@ const RepositoryListDropDown = (props) => {
                 updateCurrentBranch(null);
             }
             else {
-                console.log("Error: " + response.status)
+                updateNotificationMessage("Error: " + response.status)
                 return null;
             }
             
         }
         catch(err) {
-            console.log(err);
+            updateNotificationMessage(err.message);
             return null;
         }
     }

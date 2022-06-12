@@ -13,6 +13,7 @@ const RepositoryPanel = (props) => {
     const [currentRepository, updateCurrentRepository] = useState(null);
     const { branchList, updateBranchList } = props;
     const { updateCurrentBranch } = props;
+    const { updateNotificationMessage } = props;
 
     const getRepositoryList = async (urls) => {
         
@@ -20,7 +21,7 @@ const RepositoryPanel = (props) => {
             Promise.all(responses.map(res => res.json()))
         ).then(data => {
             updateRepositoryList([...data]);
-        }).catch(err => console.log(err));
+        }).catch(err => updateNotificationMessage(err.message));
 
     }
 
@@ -48,14 +49,14 @@ const RepositoryPanel = (props) => {
             </p>
             <div className="panel-block">
                 <div className="control has-icons-left">
-                    <RepositoryListDropDown updateCurrentBranch={ updateCurrentBranch } repositoryList={ repositoryList } updateCurrentRepository={ updateCurrentRepository } updateBranchList={ updateBranchList } updateScanList={ updateScanList } />
+                    <RepositoryListDropDown updateNotificationMessage={ updateNotificationMessage } updateCurrentBranch={ updateCurrentBranch } repositoryList={ repositoryList } updateCurrentRepository={ updateCurrentRepository } updateBranchList={ updateBranchList } updateScanList={ updateScanList } />
                     <span className="icon is-left">
                         <FontAwesomeIcon icon={faBook} />
                     </span>
                 </div>
             </div>
-            <BranchPanelBlockGroup updateScanList={ updateScanList } branchList={ branchList } updateCurrentBranch={ updateCurrentBranch } />
-            <BranchSyncButton currentRepository={ currentRepository } updateBranchList={ updateBranchList } />
+            <BranchPanelBlockGroup updateNotificationMessage={ updateNotificationMessage } updateScanList={ updateScanList } branchList={ branchList } updateCurrentBranch={ updateCurrentBranch } />
+            <BranchSyncButton updateNotificationMessage={ updateNotificationMessage } currentRepository={ currentRepository } updateBranchList={ updateBranchList } />
         </nav>
     );
 }

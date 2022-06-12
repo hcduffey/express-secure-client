@@ -2,7 +2,7 @@ import './NavBar.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faUserCircle, faToolbox } from '@fortawesome/free-solid-svg-icons';
 
 
 const NavBar = (props) => {
@@ -35,6 +35,7 @@ const NavBar = (props) => {
           <div className="navbar-end">
             {gitHubAccount ? <span className="navbar-item">{gitHubAccount.owner}</span> : <span className="navbar-item"><i>Select GitHub Account</i></span>}
             <Link onClick={() => { updateGitHubAccountModalActive(true); setisActive(!isActive); }} to="/" className="navbar-item"><FontAwesomeIcon icon={faUserCircle} /></Link>
+            <Link to="/admin" className="navbar-item"><FontAwesomeIcon icon={faToolbox} /></Link>          
           </div>
         </div>
      </nav>

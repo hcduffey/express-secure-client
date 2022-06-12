@@ -6,13 +6,14 @@ const BranchPanelBlock = (props) => {
     const { branchName, branchId, branchList } = props
     const { updateCurrentBranch } = props
     const { updateScanList } = props
+    const { updateNotificationMessage } = props
 
     const getScans = async (urls) => {
         Promise.all(urls.map(u=>fetch(u))).then(responses =>
             Promise.all(responses.map(res => res.json()))
         ).then(data => {
             updateScanList([...data]);
-        }).catch(err => console.log(err));
+        }).catch(err => updateNotificationMessage(err.message));
     }
 
     const handleClick = () => {

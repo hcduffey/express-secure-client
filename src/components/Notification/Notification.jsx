@@ -6,7 +6,7 @@ const Notification = (props) => {
     }
 
     return(
-        notificationMessage && <div className="notification is-warning"><button onClick={handleClick} className="delete"></button>{ notificationMessage }</div>
+        notificationMessage && <div className="notification is-warning"><button onClick={handleClick} className="delete"></button>{notificationMessage}</div>
     )
 }
 

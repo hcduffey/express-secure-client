@@ -4,7 +4,7 @@ const GitHubAccountListDropDown = (props) => {
 
     const {gitHubAccountList, updateGitHubAccountList} = props;
     const {updateSelectedGitHubAccount} = props;
-
+    const {updateNotificationMessage} = props;
     /**
      * Fetches all of the GitHubAccounts from the database to update/sync local state.
      *
@@ -17,7 +17,7 @@ const GitHubAccountListDropDown = (props) => {
             updateGitHubAccountList(result);
         }
         catch(err) {
-            console.log(err);
+            updateNotificationMessage(err.message);
             return null;
         }
 

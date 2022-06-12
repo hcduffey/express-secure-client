@@ -45,14 +45,14 @@ const ScanButton = (props) => {
                 getUpdatedScan(result.id);    
             }
             else {
-                updateNotificationMessage("Error: " + response.status)
                 updateShowProgressBar(false)
+                updateNotificationMessage(response.statusText);
                 return null;
             }
             
         }
         catch(err) {
-            updateNotificationMessage(err);
+            updateNotificationMessage(err.message);
             updateShowProgressBar(false)
             return null;
         }

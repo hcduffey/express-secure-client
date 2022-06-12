@@ -17,7 +17,7 @@ const Home = (props) => {
     return (
         <div className="columns">
             <aside className="column is-4 is-narrow-mobile is-fullheight section">
-                <RepositoryPanel updateScanList={ updateScanList } updateCurrentBranch={ updateCurrentBranch } branchList={ branchList } updateBranchList={ updateBranchList } repositoryList={ repositoryList } updateRepositoryList={ updateRepositoryList } gitHubAccount={gitHubAccount} />
+                <RepositoryPanel updateNotificationMessage={ updateNotificationMessage } updateScanList={ updateScanList } updateCurrentBranch={ updateCurrentBranch } branchList={ branchList } updateBranchList={ updateBranchList } repositoryList={ repositoryList } updateRepositoryList={ updateRepositoryList } gitHubAccount={gitHubAccount} />
             </aside>
             <div className="container column is-8">
                 <div className="section">
