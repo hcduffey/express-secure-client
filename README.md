@@ -221,4 +221,4 @@ API Project Link: [https://github.com/hcduffey/express-secure-api](https://githu
 [license-url]: https://github.com/hcduffey/express-secure-client/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/cduffey
-[product-screenshot]: public/images/screenshot.png
+[product-screenshot]: public/images/screen_shot.png
