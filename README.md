@@ -38,7 +38,7 @@
 
 <div align="center">
   
-<h3 align="center">GitAssure</h3>
+<h3 align="center">Express Secure</h3>
 
   <p align="center">
     An API-driven SPA written using ReactJS that provides users with the ability to perform static analysis scans of their public NodeJS Express GitHub repositories.
@@ -89,7 +89,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](public/images/screen_shot.png)
 
-GitAssure is a single-page application that interacts with an RESTful API to perform identify software vulnerabilities in NodeJS Express repositories. The application allows the user to specify a GitHub account and import the repositories and branches related to that account. A branch can be selected to perform a scan and return the identified vulnerabilities.
+Express Secure is a single-page application that interacts with an RESTful API to perform identify software vulnerabilities in NodeJS Express repositories. The application allows the user to specify a GitHub account and import the repositories and branches related to that account. A branch can be selected to perform a scan and return the identified vulnerabilities.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
