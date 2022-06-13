@@ -110,6 +110,12 @@ Express Secure is a single-page application that interacts with an RESTful API t
 
 To get a local copy up and running follow these simple steps.
 
+### ER Diagram
+[![ER Diagram][er-diagram]](public/images/er-diagram.png)
+
+### Wireframe
+[![Wireframe][wire-frame]](public/images/wire-frame.png)
+
 ### Prerequisites
 
 The client requires the backend API [https://github.com/hcduffey/express-secure-api](GitHubAPI) to work.
@@ -222,3 +228,5 @@ API Project Link: [https://github.com/hcduffey/express-secure-api](https://githu
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/cduffey
 [product-screenshot]: public/images/screen_shot.png
+[er-diagram]: public/images/er-diagram.png
+[wire-frame]: public/images/wire-frame.png
